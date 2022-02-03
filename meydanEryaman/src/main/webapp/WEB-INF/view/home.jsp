@@ -91,7 +91,7 @@ input[type=submit]:hover {
 	<div style="color: olive;">
 		<h2>Meydan Eryaman Site Sakinler Sitesine Hos Geldiniz</h2> <br>
 		
-		<input type="button" value="Sonuclar" class="button" onclick="location.href='/meydanEryaman/result'"> 
+		<input type="button" value="Sonuclar" class="button" onclick="location.href='/result'"> 
 		
 		<hr>
 		<br>
