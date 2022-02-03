@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.meydan.api.MeydanInfoDTO;
+import com.meydan.api.ResultDTO;
 import com.meydan.editor.MeydanEditor;
 import com.meydan.editor.MeydanEditorForTel;
 import com.meydan.model.MeydanJDBC;
@@ -32,6 +33,8 @@ public class MeydanController {
 	@Autowired
 	MeydanModel meydanModel;
 	
+	@Autowired
+	MeydanJDBC meydanJDBC;
 	
 	
 
@@ -59,17 +62,6 @@ public class MeydanController {
 	}
 	
 	
-	@RequestMapping("/result")
-	public String calculate(@ModelAttribute("meydanInfo") MeydanInfoDTO info) throws ClassNotFoundException, SQLException {
-		
-		MeydanJDBC meydanJDBC = new MeydanJDBC();
-		meydanJDBC.connect();
-		List<MeydanInfoDTO> allInfoFromDB = meydanJDBC.allInfoFromDB();
-		Map<MeydanInfoDTO, List<MeydanInfoDTO>> calculationMap = meydanModel.calculation(allInfoFromDB);
-		meydanJDBC.assign(calculationMap);
-		meydanJDBC.close();
-		return "result";
-	}
 	
 
 	@InitBinder

@@ -43,6 +43,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="D:/ONEDRIVE/OneDrive - metu.edu.tr/ODTU/JAVA/Spring Boot/JDBC DRIVER/postgresql-42.3.2.jar"/>
+	<classpathentry kind="lib" path="D:/ONEDRIVE/OneDrive - metu.edu.tr/ODTU/JAVA/Spring Boot/JAR/Annotations/javax.annotation-api-1.3.2.jar"/>
 	<classpathentry kind="src" output="target/test-classes" path="target/generated-test-sources/test-annotations">
 		<attributes>
 			<attribute name="optional" value="true"/>

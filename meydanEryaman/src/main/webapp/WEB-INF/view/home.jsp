@@ -29,6 +29,51 @@ input[type=submit]:hover {
 	font-size: small;
 	margin-left: 15px;
 }
+.button {
+ cursor: pointer;
+ font-weight: 700;
+ font-family: Helvetica,"sans-serif";
+ -webkit-transition: all .2s;
+ transition: all .2s;
+ padding: 10px 20px;
+ border-radius: 100px;
+ background: #cfef00;
+ border: 1px solid transparent;
+ display: -webkit-box;
+ display: -ms-flexbox;
+ display: flex;
+ -webkit-box-align: center;
+     -ms-flex-align: center;
+         align-items: center;
+ font-size: 15px;
+}
+
+.button:hover {
+ background: #a6c900;
+}
+
+.button > svg {
+ width: 34px;
+ margin-left: 10px;
+ -webkit-transition: -webkit-transform .3s ease-in-out;
+ transition: -webkit-transform .3s ease-in-out;
+ transition: transform .3s ease-in-out;
+ transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out;
+}
+
+.button:hover svg {
+ -webkit-transform: translateX(5px);
+     -ms-transform: translateX(5px);
+         transform: translateX(5px);
+}
+
+.button:active {
+ -webkit-transform: scale(0.95);
+     -ms-transform: scale(0.95);
+         transform: scale(0.95);
+}
+
+
 </style>
 <script type="text/javascript">
 	function isActice() {
@@ -44,7 +89,10 @@ input[type=submit]:hover {
 </head>
 <body>
 	<div style="color: olive;">
-		<h2>Meydan Eryaman Site Sakinler Sitesine Hos Geldiniz</h2> <br> <a href="/meydanEryaman/result">Sonuclar</a>
+		<h2>Meydan Eryaman Site Sakinler Sitesine Hos Geldiniz</h2> <br>
+		
+		<input type="button" value="Sonuclar" class="button" onclick="location.href='/meydanEryaman/result'"> 
+		
 		<hr>
 		<br>
 	</div>

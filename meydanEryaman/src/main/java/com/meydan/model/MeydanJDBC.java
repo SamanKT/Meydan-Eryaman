@@ -26,7 +26,7 @@ public class MeydanJDBC {
 	private Connection con;
 	private Statement statement;
 
-	public void connect() throws ClassNotFoundException, SQLException {
+	public Statement connect() throws ClassNotFoundException, SQLException {
 		Class.forName("org.postgresql.Driver");
 
 		con = DriverManager.getConnection(url, userName, password);
@@ -35,6 +35,7 @@ public class MeydanJDBC {
 		// statement.executeUpdate(query1);
 		// statement.executeQuery(query1);
 		resultSet = statement.executeQuery(query);
+		return statement;
 	}
 
 	public List<MeydanInfoDTO> allInfoFromDB() throws SQLException{
@@ -93,6 +94,8 @@ public class MeydanJDBC {
 		}
 		
 	}
+	
+	
 	
 	public void close() throws SQLException {
 		con.close();

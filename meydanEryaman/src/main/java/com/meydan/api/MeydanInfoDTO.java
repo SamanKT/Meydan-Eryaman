@@ -1,5 +1,7 @@
 package com.meydan.api;
 
+import java.util.Objects;
+
 public class MeydanInfoDTO {
 	
 	
@@ -68,7 +70,26 @@ public class MeydanInfoDTO {
 		this.tel = tel;
 	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(tel);
+	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		MeydanInfoDTO other = (MeydanInfoDTO) obj;
+		return Objects.equals(tel, other.tel);
+	}
+
+
+
+	
 	
 	
 }
