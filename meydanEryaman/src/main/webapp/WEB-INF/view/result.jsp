@@ -71,7 +71,7 @@
 <body>
 <form:form action="resultShow" modelAttribute="resultInfo">
 
-<span style="font-family: sans-serif;">Lutfen telefon numaranizi basinda 5 olmadan giriniz: </span> <form:input path="telResult" placeholder="5??" cssClass="simple-input"/>
+<span style="font-family: sans-serif;">Lutfen telefon numaranizi basinda 0 olmadan giriniz: </span> <form:input path="telResult" placeholder="5??" cssClass="simple-input"/>
 <form:errors path="telResult" cssClass="error"/> 
 
 <br><br><input type="submit" value="Sonuc" class="bordered-link">
