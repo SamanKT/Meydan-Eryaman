@@ -16,19 +16,22 @@ import com.meydan.api.MeydanInfoDTO;
 @Component
 public class MeydanJDBC {
 
-	private String url = "jdbc:mysql://localhost:3306/?user=root";
-	private String userName = "root";
-	private String password = "saman";
-	private String query = "SELECT * FROM meydaneryaman.userinfo;";
+	//private String url = "jdbc:postgresql://udjxsxtjtbydzo:8631780daf31459587fc7c65a67c5799306639f54c70aedcc90003dface71be9@ec2-52-31-219-113.eu-west-1.compute.amazonaws.com:5432/deg9h2re9c641o\r\n"
+		//	+ "";
+	private String url = "jdbc:postgresql://ec2-52-31-219-113.eu-west-1.compute.amazonaws.com:5432/deg9h2re9c641o?user=udjxsxtjtbydzo&password=8631780daf31459587fc7c65a67c5799306639f54c70aedcc90003dface71be9&sslfactory=org.postgresql.ssl.NonValidatingFactory";
+	private String userName = "udjxsxtjtbydzo";
+	private String password = "8631780daf31459587fc7c65a67c5799306639f54c70aedcc90003dface71be9";
+	private String query = "SELECT * FROM userinfo;";
 	private ResultSet resultSet;
 	private Connection con;
 	private Statement statement;
 
 	public void connect() throws ClassNotFoundException, SQLException {
-		Class.forName("com.mysql.cj.jdbc.Driver");
+		Class.forName("org.postgresql.Driver");
 
 		con = DriverManager.getConnection(url, userName, password);
 		statement = con.createStatement();
+		
 		// statement.executeUpdate(query1);
 		// statement.executeQuery(query1);
 		resultSet = statement.executeQuery(query);
@@ -59,7 +62,9 @@ public class MeydanJDBC {
 			carAvailableInt = 1;
 		}
 		else carAvailableInt = 0;
-		String query = String.format("INSERT INTO meydaneryaman.userinfo (`tel`, `name`, `lastname`, `block-no`, `carAvailable`, `flat-no`, `capacity`) VALUES ('"+infoDTO.getTel().toString()+"', '"+infoDTO.getName()+"', '"+infoDTO.getLastName()
+		System.out.println("the connection successful");
+
+		String query = String.format("INSERT INTO userinfo (tel, name, lastname, blockno, caravailable, flatno, capacity) VALUES ('"+infoDTO.getTel().toString()+"', '"+infoDTO.getName()+"', '"+infoDTO.getLastName()
 		+"', '"+infoDTO.getBlock()+"', '"+carAvailableInt.toString()+"', '"+infoDTO.getNo()+"', '"+infoDTO.getCapacity()+"');");
 			
 		statement.executeUpdate(query);
@@ -69,7 +74,7 @@ public class MeydanJDBC {
 		
 		String[] passengerPlaceHolder= {"first","second", "third", "fourth"};
 		for (MeydanInfoDTO dto: map.keySet()) {
-			String query= "SELECT cartel FROM meydaneryaman.assign;";
+			String query= "SELECT cartel FROM assign;";
 			 resultSet = statement.executeQuery(query);
 			 List<Long> temp = new ArrayList<>();
 			 while (resultSet.next()) {
@@ -77,11 +82,11 @@ public class MeydanJDBC {
 			 }
 			
 			 if (!temp.contains(dto.getTel())) {
-			 query = "INSERT INTO meydaneryaman.assign (cartel) VALUES ('"+dto.getTel()+"');";
+			 query = "INSERT INTO assign (cartel) VALUES ('"+dto.getTel()+"');";
 			 statement.executeUpdate(query);
 			 }
 			 for (int i=0; i<map.get(dto).size();i++) {
-				query = "UPDATE meydaneryaman.assign SET "+passengerPlaceHolder[i]+" ='"+map.get(dto).get(i).getTel()+"' WHERE cartel= '"+dto.getTel()+"';";
+				query = "UPDATE assign SET "+passengerPlaceHolder[i]+" ='"+map.get(dto).get(i).getTel()+"' WHERE cartel= '"+dto.getTel()+"';";
 				statement.executeUpdate(query);
 			}
 			
