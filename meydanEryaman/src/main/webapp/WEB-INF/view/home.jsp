@@ -16,6 +16,7 @@ input[type=submit] {
 	border: none;
 	border-radius: 4px;
 	cursor: pointer;
+	font-size: medium;
 }
 
 input[type=submit]:hover {
@@ -78,10 +79,16 @@ input[type=submit]:hover {
 <script type="text/javascript">
 	function isActice() {
 
-		if (document.getElementById("radio").checked == true) {
+		if (document.getElementById("radio").checked == true && document.getElementById("par").checked == true) {
 			document.getElementById("car").disabled = false;
 		} else {
 			document.getElementById("car").disabled = true;
+		}
+		
+		if (document.getElementById("par").checked == true) {
+			document.getElementById("radio").disabled = false;
+		} else {
+			document.getElementById("radio").disabled = true;
 		}
 
 	}
@@ -89,10 +96,11 @@ input[type=submit]:hover {
 </head>
 <body>
 	<div style="color: olive;">
-		<h2>Meydan Eryaman Site Sakinler Sitesine Hos Geldiniz</h2> <br>
+		<h2>Meydan Eryaman Site Sakinler Sitesine Hos Geldiniz</h2> 
+		<h3>Bu site kurul toplanti katilimini organize etmek icin site sakinleri tarafindan tasarlanmistir</h3><br>
 		
-		<input type="button" value="Sonuclar" class="button" onclick="location.href='/result'"> 
-		
+		<input type="button" value="Toplantiya Kiminle Gidebilirim?" class="button" onclick="location.href='${pageContext.request.contextPath}/result'"> 
+		 
 		<hr>
 		<br>
 	</div>
@@ -120,10 +128,14 @@ Daire: <form:select path="no" cssStyle="width: 10%;">
 		<br>
 		<br>
 		<hr>
-		<br>
+		
+Toplantiya katilacak misiniz?<br>
+Evet<form:radiobutton path="participate" value="true" id="par" onclick="return isActice()" /><span> &nbsp &nbsp</span>
+Hayir<form:radiobutton path="participate" value="false" id="par" onclick="return isActice()"  /><br><br><hr>
+
 Arabaniz var mi? <br>
 Evet <form:radiobutton path="carOwn" value="true" id="radio"
-			onclick="return isActice()" />
+			onclick="return isActice()" disabled="true"/>
 		<span> &nbsp &nbsp</span>
 Hayir <form:radiobutton path="carOwn" value="false"
 			onclick="return isActice()" />
@@ -134,6 +146,7 @@ Hayir <form:radiobutton path="carOwn" value="false"
 
 Arabaniza Kac kisi alabilirsiniz? <form:select path="capacity" id="car"
 			disabled="true" cssStyle="width: 10%;">
+			<form:option value="0">0</form:option>
 			<form:option value="1">1</form:option>
 			<form:option value="2">2</form:option>
 			<form:option value="3">3</form:option>

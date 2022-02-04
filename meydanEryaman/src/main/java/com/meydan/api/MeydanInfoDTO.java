@@ -12,7 +12,7 @@ public class MeydanInfoDTO {
 	private int capacity;
 	private String name;
 	private String lastName;
-	
+	private boolean participate;
 	
 	public String getBlock() {
 		return block;
@@ -85,6 +85,14 @@ public class MeydanInfoDTO {
 			return false;
 		MeydanInfoDTO other = (MeydanInfoDTO) obj;
 		return Objects.equals(tel, other.tel);
+	}
+
+	public boolean isParticipate() {
+		return participate;
+	}
+
+	public void setParticipate(boolean participate) {
+		this.participate = participate;
 	}
 
 

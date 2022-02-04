@@ -23,7 +23,9 @@ public class MeydanModel {
 			if (dto.isCarOwn()) {
 				carOwners.add(dto);
 			}
-			else passengers.add(dto);
+			else if(!dto.isCarOwn() && dto.isParticipate()) {
+				passengers.add(dto);
+			}
 		}
 		
 		List<MeydanInfoDTO> passengersTemp = new ArrayList<MeydanInfoDTO>();

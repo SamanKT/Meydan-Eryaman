@@ -49,6 +49,7 @@ public class MeydanJDBC {
 			dto.setCarOwn(resultSet.getBoolean(5));
 			dto.setCapacity(resultSet.getInt(6));
 			dto.setNo(resultSet.getInt(7));
+			dto.setParticipate(resultSet.getBoolean(8));
 			
 			temp.add(dto);
 		}
@@ -63,10 +64,11 @@ public class MeydanJDBC {
 			carAvailableInt = 1;
 		}
 		else carAvailableInt = 0;
-		System.out.println("the connection successful");
+		
+		
 
-		String query = String.format("INSERT INTO userinfo (tel, name, lastname, blockno, caravailable, flatno, capacity) VALUES ('"+infoDTO.getTel().toString()+"', '"+infoDTO.getName()+"', '"+infoDTO.getLastName()
-		+"', '"+infoDTO.getBlock()+"', '"+carAvailableInt.toString()+"', '"+infoDTO.getNo()+"', '"+infoDTO.getCapacity()+"');");
+		String query = String.format("INSERT INTO userinfo (tel, name, lastname, blockno, caravailable, flatno, capacity, participate) VALUES ('"+infoDTO.getTel().toString()+"', '"+infoDTO.getName()+"', '"+infoDTO.getLastName()
+		+"', '"+infoDTO.getBlock()+"', '"+carAvailableInt.toString()+"', '"+infoDTO.getNo()+"', '"+infoDTO.getCapacity()+"', '"+infoDTO.isParticipate()+"');");
 			
 		statement.executeUpdate(query);
 	}
