@@ -156,5 +156,7 @@ Arabaniza Kac kisi alabilirsiniz? <form:select path="capacity" id="car"
 		<br>
 		<input type="submit" value="Kaydet">
 	</form:form>
+	
+	<footer style="font: lighter; font-size: x-small ;">designed by: SamanKT</footer>
 </body>
 </html>
