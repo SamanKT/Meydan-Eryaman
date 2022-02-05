@@ -13,6 +13,8 @@ public class MeydanInfoDTO {
 	private String name;
 	private String lastName;
 	private boolean participate;
+	private boolean haveRepresentation;
+	private boolean wishRepresented;
 	
 	public String getBlock() {
 		return block;
@@ -93,6 +95,22 @@ public class MeydanInfoDTO {
 
 	public void setParticipate(boolean participate) {
 		this.participate = participate;
+	}
+
+	public boolean isHaveRepresentation() {
+		return haveRepresentation;
+	}
+
+	public void setHaveRepresentation(boolean haveRepresentation) {
+		this.haveRepresentation = haveRepresentation;
+	}
+
+	public boolean isWishRepresented() {
+		return wishRepresented;
+	}
+
+	public void setWishRepresented(boolean wishRepresented) {
+		this.wishRepresented = wishRepresented;
 	}
 
 

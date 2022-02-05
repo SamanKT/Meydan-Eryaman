@@ -90,6 +90,19 @@ input[type=submit]:hover {
 		} else {
 			document.getElementById("radio").disabled = true;
 		}
+		
+		if (document.getElementById("par").checked == true) {
+			document.getElementById("vekaletVer").disabled = true;
+		} else {
+			document.getElementById("vekaletVer").disabled = false;
+		}
+		
+		if (document.getElementById("par").checked == true) {
+			document.getElementById("hasRep").disabled = false;
+		} else {
+			document.getElementById("hasRep").disabled = true;
+		}
+		
 
 	}
 </script>
@@ -132,6 +145,15 @@ Daire: <form:select path="no" cssStyle="width: 10%;">
 Toplantiya katilacak misiniz?<br>
 Evet<form:radiobutton path="participate" value="true" id="par" onclick="return isActice()" /><span> &nbsp &nbsp</span>
 Hayir<form:radiobutton path="participate" value="false" id="par" onclick="return isActice()"  /><br><br><hr>
+
+Baska komsunuza vekalet vermek ister misiniz?<br>
+Evet<form:radiobutton path="wishRepresented" value="true" id="vekaletVer" onclick="return isActice()" /><span> &nbsp &nbsp</span>
+Hayir<form:radiobutton path="wishRepresented" value="false" id="vekaletVer" onclick="return isActice()"  /><br><br><hr>
+
+Vekalet ile mi katiliyorsunuz?<br>
+Evet<form:radiobutton path="haveRepresentation" value="true" id="hasRep" onclick="return isActice()" disabled="true" /><span> &nbsp &nbsp</span>
+Hayir<form:radiobutton path="haveRepresentation" value="false" id="hasRep" onclick="return isActice()" /><br><br><hr>
+
 
 Arabaniz var mi? <br>
 Evet <form:radiobutton path="carOwn" value="true" id="radio"

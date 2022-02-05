@@ -50,7 +50,8 @@ public class MeydanJDBC {
 			dto.setCapacity(resultSet.getInt(6));
 			dto.setNo(resultSet.getInt(7));
 			dto.setParticipate(resultSet.getBoolean(8));
-			
+			dto.setHaveRepresentation(resultSet.getBoolean(9));
+			dto.setWishRepresented(resultSet.getBoolean(10));
 			temp.add(dto);
 		}
 		
@@ -67,8 +68,8 @@ public class MeydanJDBC {
 		
 		
 
-		String query = String.format("INSERT INTO userinfo (tel, name, lastname, blockno, caravailable, flatno, capacity, participate) VALUES ('"+infoDTO.getTel().toString()+"', '"+infoDTO.getName()+"', '"+infoDTO.getLastName()
-		+"', '"+infoDTO.getBlock()+"', '"+carAvailableInt.toString()+"', '"+infoDTO.getNo()+"', '"+infoDTO.getCapacity()+"', '"+infoDTO.isParticipate()+"');");
+		String query = String.format("INSERT INTO userinfo (tel, name, lastname, blockno, caravailable, flatno, capacity, participate, hasRepresentation, wishRepresented) VALUES ('"+infoDTO.getTel().toString()+"', '"+infoDTO.getName()+"', '"+infoDTO.getLastName()
+		+"', '"+infoDTO.getBlock()+"', '"+carAvailableInt.toString()+"', '"+infoDTO.getNo()+"', '"+infoDTO.getCapacity()+"', '"+infoDTO.isParticipate()+"', '"+infoDTO.isHaveRepresentation()+"', '"+infoDTO.isWishRepresented()+"');");
 			
 		statement.executeUpdate(query);
 	}
