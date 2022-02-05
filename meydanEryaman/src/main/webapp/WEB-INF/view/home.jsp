@@ -183,7 +183,7 @@ Arabaniza Kac kisi alabilirsiniz? <form:select path="capacity" id="car"
 		<br>
 		
 	<span  style="font-size: small;">Bilgilerimin site kurul toplantiyi organize etme amacli kullanilmasina izin veriyorum</span> <input type="checkbox" id="permit"  onclick="return isActice()"> <br>
-		<input id="submit" type="submit" value="Kaydet" >
+		<input id="submit" type="submit" value="Kaydet" disabled="disabled" >
 	</form:form>
 	
 	<footer style="font: lighter; font-size: x-small ;">designed by: SamanKT</footer>
