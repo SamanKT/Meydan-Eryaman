@@ -103,7 +103,12 @@ input[type=submit]:hover {
 			document.getElementById("hasRep").disabled = true;
 		}
 		
-
+		if (document.getElementById("permit").checked == true) {
+			document.getElementById("submit").disabled = false;
+		} else {
+			document.getElementById("submit").disabled = true;
+		}
+		
 	}
 </script>
 </head>
@@ -176,7 +181,9 @@ Arabaniza Kac kisi alabilirsiniz? <form:select path="capacity" id="car"
 		</form:select>
 		<br>
 		<br>
-		<input type="submit" value="Kaydet">
+		
+	<span  style="font-size: small;">Bilgilerimin site kurul toplantiyi organize etme amacli kullanilmasina izin veriyorum</span> <input type="checkbox" id="permit"  onclick="return isActice()"> <br>
+		<input id="submit" type="submit" value="Kaydet" >
 	</form:form>
 	
 	<footer style="font: lighter; font-size: x-small ;">designed by: SamanKT</footer>
