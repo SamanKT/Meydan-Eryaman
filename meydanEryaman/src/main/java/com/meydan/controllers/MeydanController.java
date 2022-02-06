@@ -40,7 +40,7 @@ public class MeydanController {
 
 	@RequestMapping("/")
 	public String home(Model model) {
-		int[] someList = IntStream.range(1, 121).toArray();
+		int[] someList = IntStream.range(1, 142).toArray();
 		model.addAttribute("items", someList);
 		model.addAttribute("meydanInfo", new MeydanInfoDTO());
 		return "home";
