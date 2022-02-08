@@ -110,6 +110,8 @@ input[type=submit]:hover {
 		}
 		
 	}
+	
+
 </script>
 </head>
 <body>
@@ -117,7 +119,7 @@ input[type=submit]:hover {
 		<h2>Meydan Eryaman Site Sakinler Sitesine Hos Geldiniz</h2> 
 		<h3>Bu site kurul toplanti katilimini organize etmek icin site sakinleri tarafindan tasarlanmistir</h3><br>
 		
-		<input type="button" value="Toplantiya Kiminle Gidebilirim?" class="button" onclick="location.href='${pageContext.request.contextPath}/result'"> 
+		<input id="button" type="button" value="Toplantiya Kiminle Gidebilirim?" class="button" onclick="location.href='${pageContext.request.contextPath}/result'"  disabled="disabled" > 
 		 
 		<hr>
 		<br>
