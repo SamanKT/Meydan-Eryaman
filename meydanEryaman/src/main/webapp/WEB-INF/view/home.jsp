@@ -124,7 +124,7 @@ input[type=submit]:hover {
 		<hr>
 		<br>
 	</div>
-	<form:form action="confirm" modelAttribute="meydanInfo">
+	<form:form action="confirm" modelAttribute="meydanInfo" hidden="hidden" >
 Adiniz: <form:input path="name" /><form:errors path="name" cssClass="error" /> &nbsp &nbsp Soyadiniz: <form:input
 			path="lastName" /><form:errors path="lastName" cssClass="error" /> &nbsp &nbsp 
 Telefon numaraniz: <form:input path="tel" placeholder="5??" />
