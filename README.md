@@ -1,4 +1,4 @@
-# Spring-Projects
+# Meydan-Project
 A web application for the Meydan Eryaman Residences
 
 # The Features:
